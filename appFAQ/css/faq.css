@@ -1,0 +1,97 @@
+/* Table FAQ */
+/* Pour le centrage du bouton supprimer, j'y arrive tjrs pas c'est nul j'ai perdu au taquet de temps dessus 
+j'ai reussi à centrer les autres mais pas celui ci. 
+*/
+
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 2px solid #333;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* En-tête du tableau */
+th {
+    background-color: #f4f4f4;
+}
+
+/* Formulaire de question */
+form {
+    text-align: center;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Champ de texte */
+input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Boutons généraux */
+button[type="submit"] {
+    display: block;             /* pour centrer sinon c guez */
+    margin: 10px auto;          /* centrage horizontal (va comprendre) */
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/*La fameuse nav-bar*/
+/* Navbar la couleur */
+.navbar {
+    background-color: #0022ff;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navigation links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li a {
+    color: rgb(0, 255, 149);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+    color: #ffb700;
+}
