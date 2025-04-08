@@ -33,7 +33,7 @@ CREATE TABLE `faq` (
   `reponse` varchar(255) NOT NULL DEFAULT '',
   `dat_question` datetime(6) NOT NULL,
   `dat_reponse` datetime(6) DEFAULT NULL,
-  `id_user` bigint(11) NOT NULL,
+  `id_user` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
