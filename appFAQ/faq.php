@@ -34,12 +34,11 @@ if (isset($_POST['add_question'])) {
     $type_question = isset($_POST['checkbox']) ? 1 : 0;
 
     if (!empty($question)) {
-        $stmt = $pdo->prepare("INSERT INTO faq (id_user, question, reponse, dat_question, type_question) 
-                               VALUES (:id_user, :question, '', NOW(), :type_question)");
+        $stmt = $pdo->prepare("INSERT INTO faq (id_user, question, reponse, dat_question) 
+                               VALUES (:id_user, :question, '', NOW())");
         $stmt->execute([
             'id_user' => $user_id,
             'question' => $question,
-            'type_question' => $type_question
         ]);
     }
 }
@@ -97,13 +96,13 @@ if (isset($_POST['edit_question']) && !empty($_POST['new_question']) && ($isAdmi
 
 /* Récupération des questions */
 if ($isSuperAdmin) {
-    $questions = $pdo->query("SELECT f.id_faq, f.question, f.reponse, f.dat_question, f.dat_reponse, f.type_question, u.pseudo, l.lib_ligue, u.id_ligue
+    $questions = $pdo->query("SELECT f.id_faq, f.question, f.reponse, f.dat_question, f.dat_reponse, u.pseudo, l.lib_ligue, u.id_ligue
                               FROM faq f
                               JOIN user u ON f.id_user = u.id_user
                               LEFT JOIN ligue l ON u.id_ligue = l.id_ligue
                               ORDER BY f.dat_question DESC")->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $stmt = $pdo->prepare("SELECT f.id_faq, f.question, f.reponse, f.dat_question, f.dat_reponse, f.type_question, u.pseudo, l.lib_ligue, u.id_ligue
+    $stmt = $pdo->prepare("SELECT f.id_faq, f.question, f.reponse, f.dat_question, f.dat_reponse, u.pseudo, l.lib_ligue, u.id_ligue
                            FROM faq f
                            JOIN user u ON f.id_user = u.id_user
                            LEFT JOIN ligue l ON u.id_ligue = l.id_ligue
@@ -185,7 +184,7 @@ if ($isSuperAdmin) {
                 <td>
                     <form method="POST">
                         <input type="hidden" name="question_id" value="<?= $row['id_faq'] ?>">
-                        <input type="text" name="new_question" placeholder="Modifier" required>
+                        <input type="text" name="new_question" placeholder="Modifier" value="<?= htmlspecialchars($row['question']) ?>" required>
                         <button type="submit" name="edit_question">Modifier</button>
                     </form>
                 </td>
