@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2025 at 05:48 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Dec 02, 2025 at 08:13 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,8 +70,25 @@ CREATE TABLE `user` (
   `mdp` varchar(255) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `id_usertype` bigint(11) NOT NULL,
-  `id_ligue` bigint(11) NOT NULL
+  `id_ligue` bigint(11) NOT NULL,
+  `dateNaissance` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `pseudo`, `mdp`, `mail`, `id_usertype`, `id_ligue`, `dateNaissance`) VALUES
+(12, 'SuperAdmin', '$2y$10$QiAP4jaNpBtZ6WgU9YihPO.O.gFJdPIFv9twkex6/HPjSQgocYele', 'superadmin@limayrac.fr', 3, 5, '2015-12-17'),
+(14, 'adminfoot', '$2y$10$hwVoAW2fXYizEn6OvKrBh.KvHG.0ICp.LYbw2vTJdR.r8c1J2JyoS', 'adminfoot@limayrac.com', 2, 1, '0000-00-00'),
+(15, 'adminvolley', '$2y$10$dwlu7QT2GVy1n9WO/iScOOMsI.RT7OLsYDllnHBhcVhRvK.F7mJnu', 'adminvolley@limayrac.fr', 2, 3, '0000-00-00'),
+(16, 'adminhand', '$2y$10$EzPoMByyznAq55EYVZXeYuLkq7law3UFRW7.wFFpb/xNomxJZJtEK', 'adminhand@limayrac.fr', 2, 4, '0000-00-00'),
+(17, 'adminbasket', '$2y$10$aj9DpH/idqx1QkQsbto4UeO/oVRN49cliqTWM1YKsis7IvS0zuWXa', 'adminbasket@limayrac.fr', 2, 2, '0000-00-00'),
+(23, 'U1foot', '$2y$10$s6H/lQV4kolUMGj9NW28OO4m8BH1lJEOLhCi9AEMj5YbO1d.uN3XW', 'utilisateurfoot@limayrac.fr', 1, 1, '0000-00-00'),
+(25, 'U1basketball', '$2y$10$PUakTEfx2lXPovUyzra4dusAWe6DwVSbD0RdM1zIWbG62HgeaY3Ku', 'utilisateurbasketball@limayrac.Fr', 1, 2, '0000-00-00'),
+(26, 'U1volleyball', '$2y$10$..3oVTF4L4ed4dCf/ly.3OFl0iOKnnF.SYfslXk8oGiWzdQagbmWy', 'utilisateurvolleyball@limayrac.fr', 1, 3, '0000-00-00'),
+(27, 'U1handball', '$2y$10$FJRjJcIXRY3HoCQcLIrg/OboH/9FG7Ms3YbjQV1Ng337v7rG7MGlq', 'utilisateurhandball@limayrac.fr', 1, 4, '0000-00-00'),
+(34, 'test3', '$2y$10$.ZY8y7smUXg.wIw0SU8bSu3SQ/Q8ncW00dZ29wkzWaYhKwFk1eDfq', 'test@lim.fr', 1, 2, '2005-11-02');
 
 -- --------------------------------------------------------
 
@@ -133,7 +150,7 @@ ALTER TABLE `usertype`
 -- AUTO_INCREMENT for table `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `id_faq` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_faq` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `ligue`
@@ -145,7 +162,7 @@ ALTER TABLE `ligue`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_user` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `usertype`
